@@ -1,0 +1,76 @@
+{
+  "name": "zip-packager",
+  "displayName": "Zip Packager",
+  "description": "Collect files and folders via drag-and-drop and bundle them into a single archive.",
+  "version": "0.0.1",
+  "publisher": "factory-droid",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:zipPackagerView",
+    "onCommand:zipPackager.refresh",
+    "onCommand:zipPackager.clearAll",
+    "onCommand:zipPackager.pack"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "zipPackagerContainer",
+          "title": "Zip Packager",
+          "icon": "media/package.svg"
+        }
+      ]
+    },
+    "views": {
+      "zipPackagerContainer": [
+        {
+          "id": "zipPackagerView",
+          "name": "Packager",
+          "type": "webview",
+          "icon": "media/package.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "zipPackager.clearAll",
+        "title": "Zip Packager: Clear All"
+      },
+      {
+        "command": "zipPackager.pack",
+        "title": "Zip Packager: Pack Collected Items"
+      },
+      {
+        "command": "zipPackager.refresh",
+        "title": "Zip Packager: Refresh View"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "test": "echo \"No automated tests yet\""
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.4",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vscode/vsce": "^3.6.2",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "archiver": "^6.0.2",
+    "fs-extra": "^11.2.0"
+  }
+}

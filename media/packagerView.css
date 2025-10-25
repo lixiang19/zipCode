@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--vscode-sideBar-background);
+  color: var(--vscode-foreground);
+  font: 13px/1.5 var(--vscode-font-family);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  height: 100%;
+}
+
+.drop-zone {
+  border: 1px dashed var(--vscode-editorWidget-border);
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  background: var(--vscode-editorWidget-background);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.drop-zone--hover {
+  border-color: var(--vscode-focusBorder);
+  background: var(--vscode-list-hoverBackground, var(--vscode-editorWidget-background));
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-foreground);
+}
+
+.actions button.primary {
+  background: var(--vscode-button-background);
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--vscode-editorWidget-border);
+  border-radius: 6px;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--vscode-editorWidget-border);
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry__badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+}
+
+.entry__label {
+  flex: 1;
+  word-break: break-all;
+}
+
+.entry__remove {
+  border: none;
+  background: transparent;
+  color: var(--vscode-errorForeground);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.status {
+  min-height: 18px;
+  color: var(--vscode-descriptionForeground);
+}
